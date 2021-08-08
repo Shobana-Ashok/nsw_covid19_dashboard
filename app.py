@@ -15,7 +15,8 @@ nsw_covid_df = pd.read_csv('https://data.nsw.gov.au/data/dataset/aefcde60-3b0c-4
 nsw_covid_df.columns = ["Notification Date","Postcode","LHD_Code","LHD_District","LGA_Code","LGA_Name"]
 df = nsw_covid_df.dropna()
 
-app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = dash.Dash(__name__,external_stylesheets=[dbc.themes.BOOTSTRAP])
+server = app.server
 
 controls = dbc.Card(
     [
